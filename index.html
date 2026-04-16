@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robert Wakanya | Official Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #0f2027;
+            --secondary: #2c5364;
+            --accent: #d4af37; 
+            --royal-blue: #1e3c72; 
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --glass: rgba(255, 255, 255, 0.98);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: darkblue;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 32, 39, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .nav-container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo { height: 40px; filter: drop-shadow(0 0 5px var(--accent)); }
+        .nav-links { list-style: none; display: flex; }
+        .nav-links li { margin-left: 25px; }
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* --- Layout Container --- */
+        .main-wrapper {
+            width: 95%;
+            max-width: 1100px;
+            margin: 100px auto 40px;
+            background: var(--glass);
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+        }
+
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('vibez.jpeg');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 20px;
+            text-align: center;
+            color: white;
+            border-bottom: 5px solid var(--accent);
+        }
+
+        header img.profile-pic {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 6px solid var(--accent);
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        header h1 { font-size: 3rem; letter-spacing: 2px; text-transform: uppercase; }
+        header p { color: var(--accent); font-size: 1.2rem; letter-spacing: 3px; font-weight: 600; }
+
+        section { padding: 60px 50px; }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::after {
+            content: ""; flex: 1; height: 3px; background: var(--accent); margin-left: 20px;
+        }
+
+        .bio-flex-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .reverse { flex-direction: row-reverse; }
+        .bio-text { flex: 1; min-width: 300px; font-size: 1.1rem; color: #444; }
+
+        .bio-image-wrapper {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .bio-image {
+            width: 100%;
+            max-width: 380px;
+            border-radius: 20px;
+            z-index: 2;
+            box-shadow: 15px 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .image-accent-border {
+            position: absolute;
+            width: 100%; max-width: 380px; height: 100%;
+            border: 4px solid var(--accent);
+            top: 20px; left: 20px; border-radius: 20px; z-index: 1;
+        }
+
+        .image-accent-border-blue {
+            position: absolute;
+            width: 100%; max-width: 380px; height: 100%;
+            border: 4px solid var(--royal-blue);
+            top: 20px; right: 20px; border-radius: 20px; z-index: 1;
+        }
+
+        /* --- Personal Attributes Section (The Skills/Hobbies insertion) --- */
+        .attributes-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 50px;
+            background: #fff;
+        }
+
+        .attribute-box {
+            flex: 1;
+            min-width: 300px;
+            background: #fdfdfd;
+            padding: 30px;
+            border-radius: 20px;
+            border-top: 4px solid var(--accent);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .attribute-box h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .attribute-box ul { list-style: none; }
+        .attribute-box li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .attribute-box li::before {
+            content: "\f058"; 
+            font-family: "Font Awesome 5 Free"; 
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--royal-blue);
+        }
+
+        /* --- Staggered Duo Image Styling --- */
+        .image-duo-wrapper {
+            flex: 1;
+            min-width: 350px;
+            height: 480px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-img-box { position: absolute; width: 260px; height: 350px; top: 0; left: 0; z-index: 3; }
+
+        .sub-img-box { position: absolute; width: 260px; height: 350px; bottom: 0; right: 0; z-index: 5; }
+
+        .duo-img { width: 100%; height: 100%; object-fit: cover; border-radius: 15px; position: relative; z-index: 2; box-shadow: 10px 10px 25px rgba(0,0,0,0.2); }
+
+        .accent-frame-gold { position: absolute; width: 100%; height: 100%; border: 4px solid var(--accent); top: -12px; left: -12px; border-radius: 15px; z-index: 1; }
+
+        .accent-frame-blue { position: absolute; width: 100%; height: 100%; border: 4px solid var(--royal-blue); bottom: -12px; right: -12px; border-radius: 15px; z-index: 1; }
+
+        .stat-bar {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding: 20px;
+            background: #f0f2f5;
+            border-radius: 15px;
+        }
+
+        .stat-item { text-align: center; }
+        .stat-item strong { display: block; font-size: 1.4rem; color: var(--royal-blue); }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 50px;
+        }
+
+        .gallery-item {
+            height: 350px; border-radius: 20px; overflow: hidden;
+        }
+
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+
+        footer {
+            background: #000; color: #888; text-align: center; padding: 60px 20px;
+        }
+
+        .btn {
+            display: inline-block; padding: 15px 40px; background: var(--accent);
+            color: #000; text-decoration: none; border-radius: 50px; font-weight: 800;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .pulse-animation {
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .float-animation {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease forwards;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .slide-in-right {
+            animation: slideInRight 0.8s ease forwards;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .interactive-item {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .interactive-item:hover {
+            transform: translateY(-4px);
+        }
+
+        @media (max-width: 768px) {
+            section, .attributes-container { padding: 40px 20px; }
+            .bio-flex-container { flex-direction: column; }
+            .image-duo-wrapper { height: 650px; }
+            .main-img-box, .sub-img-box { position: relative; width: 90%; margin-bottom: -50px; left: auto; right: auto; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <img src="1000177318.jpeg" alt="RW" class="nav-logo">
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">The Journey</a></li>
+            <li><a href="#vision">Vision</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="main-wrapper">
+    <header id="home">
+        <img src="1772713526527.jpeg" alt="Robert Wakanya" class="profile-pic">
+        <h1>Robert Wakanya</h1>
+        <p>The Voice of Africa</p>
+    </header>
+
+    <section id="about">
+        <h2 class="section-title">The Foundation</h2>
+        <div class="bio-flex-container">
+            <div class="bio-text">
+                <p>Born in 2006, <strong>Bobby</strong> is a driven and ambitious individual from <strong>Kwanza Constituency</strong>. His early education took place at Makhonge, Marakaru, and Mirembe Primary Schools, where his academic curiosity began. He then joined <strong>St Paul's High School Bwayi</strong>, where he served as <strong>School President</strong> and excelled in his KCSE exams, proving himself a natural leader.</p>
+            </div>
+            <div class="bio-image-wrapper">
+                <img src="Teen.png" height = 350 alt="Bobby" class="bio-image">
+                <div class="image-accent-border"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="vision" style="background: #f4f7f6;">
+        <div class="bio-flex-container reverse">
+            <div class="bio-text">
+                <h2 class="section-title">Professional Path</h2>
+                <p>Bobby is currently pursuing a <strong>Bachelor of Commerce (Accounting and Finance)</strong> at <strong>Kenyatta University</strong>, with plans to complete his <strong>CPA certification</strong>. His passion for leadership and community development has fueled his aspiration to become a <strong>Member of Parliament for Kwanza Constituency</strong>, driving positive change in his hometown.</p>
+            </div>
+            <div class="bio-image-wrapper">
+                <img src="ku..png" height= 400 alt="Vision" class="bio-image">
+                <div class="image-accent-border-blue"></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="attributes-container">
+        <div class="attribute-box">
+            <h3><i class="fas fa-award"></i> Skills & Achievements</h3>
+            <ul>
+                <li>Leadership and team management (ex-School President)</li>
+                <li>Problem-solving and analytical thinking</li>
+                <li>Strong communication and public speaking skills</li>
+                <li>Proficient in financial analysis and accounting principles</li>
+            </ul>
+        </div>
+        <div class="attribute-box">
+            <h3><i class="fas fa-heart"></i> Passions & Hobbies</h3>
+            <ul>
+                <li>Music: Gospel, Hip-Hop, and African music</li>
+                <li>Studying and analyzing problems to find solutions</li>
+                <li>Leadership and community development</li>
+                <li>Reading business and leadership books</li>
+                <li>Playing basketball and table tennis</li>
+            </ul>
+        </div>
+    </div>
+
+    <section id="entrepreneur" style="background: white;">
+        <div class="bio-flex-container">
+            <div class="bio-text">
+                <h2 class="section-title">Entrepreneurial Spirit</h2>
+                <p>Bobby has developed a deep-rooted interest in <strong>business and entrepreneurship</strong>, viewing it as a powerful tool for economic empowerment and community transformation. Leveraging his expertise in Accounting and Finance, he aims to establish <strong>sustainable business ventures</strong> designed to create real employment opportunities for the youth of Kwanza Constituency.</p>
+                <br>
+                <p>He believes that sound financial management, innovation, and ethical leadership are key drivers of successful businesses, and he is committed to using these principles to uplift his community while contributing to the broader economic growth of <strong>Kenya</strong>.</p>
+                
+                <div class="stat-bar">
+                    <div class="stat-item"><strong>100%</strong><span>Commitment</span></div>
+                    <div class="stat-item"><strong>Vision</strong><span>Economic Growth</span></div>
+                    <div class="stat-item"><strong>Goal</strong><span>Youth Jobs</span></div>
+                </div>
+            </div>
+            
+            <div class="image-duo-wrapper">
+                <div class="main-img-box">
+                    <img src="bozz.jpeg" alt="Business Vision" class="duo-img">
+                    <div class="accent-frame-gold"></div>
+                </div>
+                <div class="sub-img-box">
+                    <img src="biz.jpeg" alt="Community Impact" class="duo-img shadow-strong">
+                    <div class="accent-frame-blue"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2 class="section-title">Visual Portfolio</h2>
+        <div class="gallery">
+            <div class="gallery-item"><img src="vibez.jpeg"></div>
+            <div class="gallery-item"><img src="1000177318.jpeg"></div>
+            <div class="gallery-item"><img src="1772713526527.jpeg"></div>
+        </div>
+    </section>
+
+    <footer>
+        <a href="mailto:wakanyasimiyu@gmail.com" class="btn">SECURE COLLABORATION</a>
+        <p>&copy; 2026 Robert Wakanya Simiyu Mumbo. All Rights Reserved.</p>
+        <p style="font-size: 10px; margin-top: 15px;">DESIGNED BY JACKPOUND</p>
+    </footer>
+</div>
+
+<script>
+    // Scroll-triggered animations
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Animate elements on page load
+    document.querySelectorAll('section, .attribute-box, .gallery-item, .bio-image-wrapper').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Smooth parallax effect on scroll
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        const scrollPosition = window.pageYOffset;
+        header.style.backgroundPosition = `center ${scrollPosition * 0.5}px`;
+    });
+
+    // Interactive profile picture animation
+    const profilePic = document.querySelector('.profile-pic');
+    if (profilePic) {
+        profilePic.classList.add('pulse-animation');
+        profilePic.addEventListener('mouseover', () => {
+            profilePic.style.filter = 'brightness(1.15) drop-shadow(0 0 20px rgba(231, 184, 74, 0.8))';
+        });
+        profilePic.addEventListener('mouseout', () => {
+            profilePic.style.filter = 'brightness(1)';
+        });
+    }
+
+    // Navigation active state
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        const sections = document.querySelectorAll('section, header');
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - 150) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.style.color = '#f6f7f8';
+            if (link.getAttribute('href').slice(1) === current) {
+                link.style.color = '#e7b84a';
+                link.style.borderBottom = '2px solid #e7b84a';
+            } else {
+                link.style.borderBottom = 'none';
+            }
+        });
+    });
+
+    // Attribute boxes stagger animation
+    const attrBoxes = document.querySelectorAll('.attribute-box');
+    attrBoxes.forEach((box, index) => {
+        box.style.animationDelay = `${index * 0.15}s`;
+        box.classList.add('fade-in');
+    });
+
+    // Gallery image hover effects
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    galleryItems.forEach(item => {
+        item.classList.add('interactive-item');
+        item.addEventListener('mouseover', function() {
+            this.style.filter = 'brightness(1.1) saturate(1.2)';
+            this.style.transform = 'scale(1.03)';
+        });
+        item.addEventListener('mouseout', function() {
+            this.style.filter = 'brightness(1)';
+            this.style.transform = 'scale(1)';
+        });
+    });
+
+    // Bio images float animation on load
+    const bioImages = document.querySelectorAll('.bio-image');
+    bioImages.forEach(img => {
+        img.classList.add('float-animation');
+    });
+
+    // Duo images interactive effects
+    const duoImages = document.querySelectorAll('.duo-img');
+    duoImages.forEach((img, index) => {
+        img.classList.add('interactive-item');
+        img.addEventListener('mouseover', function() {
+            this.style.filter = 'brightness(1.2) contrast(1.1)';
+            this.style.boxShadow = '0 45px 90px rgba(0, 0, 0, 0.35)';
+        });
+        img.addEventListener('mouseout', function() {
+            this.style.filter = 'brightness(1)';
+            this.style.boxShadow = '10px 10px 25px rgba(0,0,0,0.2)';
+        });
+    });
+
+    // Button click feedback
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            this.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 100);
+        });
+    });
+
+    // Stat bar counter animation
+    const statItems = document.querySelectorAll('.stat-item');
+    let hasAnimated = false;
+
+    const animateStats = () => {
+        if (hasAnimated) return;
+        
+        const statBar = document.querySelector('.stat-bar');
+        if (statBar && isInViewport(statBar)) {
+            statItems.forEach((item, index) => {
+                item.style.animation = `slideInUp 0.6s ease forwards`;
+                item.style.animationDelay = `${index * 0.2}s`;
+            });
+            hasAnimated = true;
+        }
+    };
+
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return rect.top <= window.innerHeight && rect.bottom >= 0;
+    }
+
+    window.addEventListener('scroll', animateStats);
+
+    // Smooth scroll for navigation links
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').slice(1);
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Header subtitle animation on load
+    window.addEventListener('load', () => {
+        const headerTitle = document.querySelector('header h1');
+        const headerSubtitle = document.querySelector('header p');
+        if (headerTitle) {
+            headerTitle.style.animation = 'slideInDown 0.8s ease forwards';
+        }
+        if (headerSubtitle) {
+            headerSubtitle.style.animation = 'fadeInUp 1s ease 0.3s forwards';
+            headerSubtitle.style.opacity = '0';
+        }
+    });
+
+    // Add slideInDown animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Responsive sidebar/menu toggle for mobile (optional enhancement)
+    const resizeHandler = () => {
+        if (window.innerWidth <= 768) {
+            document.querySelectorAll('.nav-links li').forEach(li => {
+                li.style.marginLeft = '15px';
+            });
+        }
+    };
+    window.addEventListener('resize', resizeHandler);
+    resizeHandler();
+
+    // Mouse move parallax on bio images
+    const bioImageWrappers = document.querySelectorAll('.bio-image-wrapper');
+    bioImageWrappers.forEach(wrapper => {
+        wrapper.addEventListener('mousemove', (e) => {
+            const img = wrapper.querySelector('.bio-image');
+            if (img) {
+                const rect = wrapper.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const moveX = (x - centerX) * 0.05;
+                const moveY = (y - centerY) * 0.05;
+                img.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            }
+        });
+
+        wrapper.addEventListener('mouseleave', () => {
+            const img = wrapper.querySelector('.bio-image');
+            if (img) {
+                img.style.transform = 'translate(0, 0)';
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
